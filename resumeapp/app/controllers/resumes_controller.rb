@@ -1,7 +1,11 @@
 class ResumesController < ApplicationController
   before_action :set_resume, only: [:show, :edit, :update, :destroy]
 
+  before_filter :check_for_top_secret
 
+  def check_for_top_secret
+    render :text => "Not authorized", :status => 403 if params[:id] && params[:id].to_i > 500
+  end
 
   def viewed
     resume = Resume.find(params[:id])
