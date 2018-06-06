@@ -27,3 +27,6 @@ rake about
 rake stats
 rake test
 
+# see more about
+Tubolinks
+Strong parameters
